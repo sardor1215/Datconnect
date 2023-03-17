@@ -1,0 +1,35 @@
+{
+   "action": {
+      "default_popup": "popup.html"
+   },
+   "author": "samakovuluk",
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "js": [ "datconnect.js" ],
+      "matches": [ "https://datconnect.carrierify.com/**" ],
+      "run_at": "document_end"
+   }, {
+      "css": [ "css/content.css" ],
+      "js": [ "scripts/jquery.min.js", "content.js", "filter.js", "map.js", "rpm.js" ],
+      "matches": [ "https://power.dat.com/search/loads", "https://power.dat.com/postings/trucks" ],
+      "run_at": "document_end"
+   } ],
+   "description": "Plugin that simplifies communication between carriers and brokers by allowing carriers to send emails with one click from loadboard",
+   "host_permissions": [ "https://power.dat.com/search/loads", "https://power.dat.com/postings/trucks" ],
+   "icons": {
+      "128": "images/icon128.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApl7BLfI4KfbKmmMhf1ha2dUurjBb2tDe7D38UrPWmdV7JCIvIWwpzbcC6CePGeoqxPaUz14WElTo5rPvB0jRz3F+i+ZAY2ZTb42nN6+ZYYgMSZ8iU36gK8nLlLDXY/WcglEfSRCWHONsW/4dSXDBNXVKogOztUtUX5SCEoJ0sL+rnfS8n3P273rnqLbNkY3F2FAOZgmTK1x4nWhenJ4hFueluFPhrzLnKDuobjk2KZttzQg6YWokzMqRHbpj8aPIaQ9HNOUNXO3HFHtgr6M1/r9KsRIHGhQuwX5i5NS1HZh6SaFPSRc5kTSlGlva9NLTuaun7DSlD/DQFTxqaBTAWQIDAQAB",
+   "manifest_version": 3,
+   "name": "DATconnect",
+   "permissions": [ "storage", "webRequest", "activeTab", "tabs" ],
+   "short_name": "DATConnect send emails with one click from the power dat",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.8.1",
+   "web_accessible_resources": [ {
+      "matches": [ "https://power.dat.com/*" ],
+      "resources": [ "scripts/*.js", "img/*.png", "popup.js" ]
+   } ]
+}

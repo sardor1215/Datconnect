@@ -1,0 +1,125 @@
+th.rpm-head.ng-scope {
+    width: 3.1em;
+}
+
+.datconnect-actions {
+    display: none;
+    position: absolute;
+    right: 0px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(140, 34, 2, 0.1);
+    border-radius: 4px;
+}
+
+
+.datconnect-actions svg {
+    width: 13px;
+    height: 13px;
+    fill: #827dea;
+}
+
+.datconnect-actions button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    color: #0be;
+}
+
+.datconnect-actions button:hover svg{
+    fill: #8c2;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% {  transform: rotate(359deg); }
+}
+.datconnect-loading {
+    animation: spin 2s linear infinite;
+
+}
+
+.iscanceledmatch .datconnect-actions {
+    visibility: collapse;
+    display: none !important;
+}
+.datconnectFilter {
+    margin-right: 10px;
+}
+
+
+.datconnectCalcContainer {
+    background: #63A0F0;
+    color: #fff;
+    border-radius: 8px;
+    padding: 0px 8px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 298px;
+    margin: 0 auto;
+    transform: translateX(-2.33em) translateY(0.9166em);
+}
+.datconnectRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    justify-content: space-between;
+    width: 100%;
+}
+.datconnectCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 68px;
+}
+
+
+.datconnectCalcInput {
+    max-width: 80px;
+    text-align: center;
+}
+.datconnectLabelSpan {
+    width: 35px;
+    padding-right: 15px;
+}
+.datconnectInputUnit {
+    position: relative;
+    margin-top: -4px;
+}
+.datconnectInputUnit:before {
+    content: attr(data-char);
+    position: absolute;
+    z-index: 1;
+    font-size: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+    font-weight: bold;
+}
+
+.datconnectInputUnit input {
+    background: transparent;
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 15px;
+    color: #fff;
+    width: 71px;
+}
+.datconnectInputUnit:not(.static) input:active,
+.datconnectInputUnit:not(.static) input:focus,
+.datconnectInputUnit:not(.static) input:hover {
+    background: #fff;
+    color: #333;
+    border: 1px solid #000;
+}
+.datconnectInputUnit.static input {
+    pointer-events: none;
+}

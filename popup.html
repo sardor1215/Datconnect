@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="/bootstrap/css/bootstrap.css" 
+        rel="stylesheet">
+        <link href="/popup.css" 
+        rel="stylesheet">
+        <script src="/bootstrap/js/bootstrap.js" ></script>
+        <script src="scripts/jquery.min.js"></script>
+
+    <body>
+    
+        <main style="width: 500px;height: 500px;">
+            <section id="loader">
+              <nav class="navbar navbar-dark bg-primary">
+                <a class="navbar-brand px-4 pt-2 gap-2" href="#">DATconnect</a>
+                
+              </nav>
+              <div class="px-4 pt-2 my-5 text-center border-bottom">
+                <h1 class="display-4 fw-bold">Wait second!</h1>
+                <div class="col-lg-6 mx-auto">
+                  <p class="lead mb-4">Syncing...
+                  </p>
+                </div>
+              </div>
+              <br/>
+              <br/>
+            
+              <div class="d-flex justify-content-center text-center">
+                <div class="spinner-border" role="status"
+                style="width: 5rem; height: 5rem;">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </section>
+
+            <section id="checkInbox" hidden>
+                <nav class="navbar navbar-dark bg-primary">
+                    <a class="navbar-brand px-4 pt-2 gap-2" href="#">DATconnect</a>
+                </nav>
+                <br/>
+                <br/>
+                <div class="px-4 pt-2 my-5 text-center border-bottom">
+                    <h1 class="display-4 fw-bold">Done, check your inbox</h1>
+                </div>
+                <br/>
+                <br/>
+
+            </section>
+
+            <section id="signlinkview" hidden>
+                <nav class="navbar navbar-dark bg-primary">
+                    <a class="navbar-brand px-4 pt-2 gap-2" href="#">DATconnect</a>
+                </nav>
+
+                <br/>
+                <br/>
+                <div class="px-4 pt-2 my-5 text-center border-bottom">
+                    <h1 class="display-4 fw-bold">Sign In with Link</h1>
+                    <br/>
+                    <form class="input-group">
+                        <input required id="emailLink"  type="email" class="form-control" placeholder="email@example.com" >
+                        <button id="emailLinkButton" class=" btn btn-outline-primary" type="submit">Get Link</button>
+                    </form>
+                    <br/>
+                    <br/>
+
+                </div>
+
+            </section>
+
+            <section id="login" hidden>
+              <nav class="navbar navbar-dark bg-primary">
+                <a class="navbar-brand px-4 pt-2 gap-2" href="#">DATconnect</a>
+              </nav>
+                <div class="px-4 pt-2 my-5 text-center border-bottom">
+                    <h1 class="display-4 fw-bold">Welcome to DATconnect!</h1>
+                    <div class="col-lg-6 mx-auto">
+                      <p class="lead mb-4">Start sending emails to brokers with just one click!
+                        Sign in with your Gmail account to get started.
+                      </p>
+
+                        <div>
+                            <a role="button"
+                               id="clickSigIn">
+                                <img alt="Google sign-in"
+                                     src="/img/btn-google.png" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="container p-2">
+                        <a id="signclink" href="/">or sign in with link</a>
+                    </div>
+                  </div>
+            </section>
+
+
+
+
+
+
+
+
+            <section id="authenticated" hidden>
+              <nav class="navbar navbar-dark bg-primary">
+                <a class="navbar-brand px-4 pt-2 gap-2" href="#">DATconnect</a>
+          
+                <a id="logout" class="navbar-text" style="padding-right: 8px;">
+                 Logout
+                </a>
+                
+              </nav>
+              <div class="card">
+                <div class="row" class="card-header" style=" padding-top: 10px;">
+                    <div class="col" style="margin-left: 5px;">
+                      <h5 id="emailField">uluk.samakov@gmail.com</h5>
+                    </div>
+                    <div class="col">
+                      <a target="_blank" id="pricingId" style="justify-content: end;display: flex;padding-right: 5px;"><b id="emailsField">99</b>&nbsp;emails</a>
+                    </div> 
+                </div>
+                
+
+              </div>
+
+                <div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="email-tab"
+                                    data-bs-toggle="tab" data-bs-target="#email-tab-pane"
+                                    type="button" role="tab" aria-controls="email-tab-pane"
+                                    aria-selected="true">Templates</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="accounts-tab"
+                                    data-bs-toggle="tab" data-bs-target="#accounts-tab-pane"
+                                    type="button" role="tab" aria-controls="accounts-tab-pane"
+                                    aria-selected="true">Accounts</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features-tab-pane"
+                                    type="button" role="tab" aria-controls="features-tab-pane" aria-selected="false">Features</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="conf-tab" data-bs-toggle="tab" data-bs-target="#conf-tab-pane"
+                                    type="button" role="tab" aria-controls="conf-tab-pane"
+                                    aria-selected="false">Contact Us</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active p-2" id="email-tab-pane" role="tabpanel" aria-labelledby="email-tab" tabindex="0">
+
+
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="row">
+                                                <div class="col-10" id="emailSubject">
+                                                    <p >Load from <b>{origin}</b> to <b>{destination}</b></p>
+                                                </div>
+
+
+                                                <div class="col" style="justify-content: end;display: flex;padding-right: 5px;">
+                                                    <a href="" id="emailEdit2" > edit
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                        </svg>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="card-body" >
+                                            <div class="overflow-y-scroll" style="height: 180px" id="emailHtml">
+                                            </div>
+
+                                        </div>
+
+                            </div>
+
+                            <div id="multipleTemplateBox" hidden >
+                            <div  id="multipleTemplate" class="pt-1">
+
+                                <ul class="list-group" >
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="defaultTemplID" checked>
+                                        <label class="form-check-label" for="defaultTemplID">Default Template</label>
+
+                                    </li>
+                                </ul>
+
+
+
+
+
+
+
+                            </div>
+                            <button id="createTemplateBtn" type="button" class="mt-2 float-end btn btn-secondary btn-sm position-relative">
+                                Create
+                            </button>
+                                <br/>
+                                <br/>
+                            </div>
+
+
+
+                            <div class="container mt-2">
+                                <form id="emailSend">
+                                    <div class="row">
+                                        <div class="col-9">
+                                            <input id="emailInput" type="email" class="form-control"  placeholder="name@example.com">
+                                        </div>
+                                        <div class="col-3 float-end">
+                                            <input class="btn btn-primary" type="submit" value="Send Email">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+                        <!-- ACCOUNTS -->
+                        <div class="tab-pane fade" id="accounts-tab-pane" role="tabpanel" aria-labelledby="conf-tab" tabindex="0">
+
+
+                            <div class="container p-2" id="accounts-container">
+
+                                <div class="pt-1" id="accountList">
+
+                                    <ul class="list-group-account"  id="accountsBox">
+
+                                    </ul>
+
+                                    <button  id="createAccountBtn" type="button" class="mt-2 float-end btn btn-secondary btn-sm position-relative">
+                                        Create
+                                    </button>
+                                </div>
+
+
+
+
+                                <div id="waitCreateAccount"  hidden>
+                                    <br/>
+                                    <div class="px-4 pt-2 my-5 text-center border-bottom">
+                                        <h1 class="display-4 fw-bold">Syncing...</h1>
+                                        <div class="col-lg-6 mx-auto">
+                                            <p class="lead mb-4">Syncing...
+                                            </p>
+                                        </div>
+                                        <div class="d-flex justify-content-center text-center">
+                                            <div class="spinner-border" role="status"
+                                                 style="width: 5rem; height: 5rem;">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container p-2" id="addNewAccountBox" hidden>
+
+                                    <h2>Connect account</h2>
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">GMAIL</button>
+                                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">SMTP</button>
+                                        </div>
+                                    </nav>
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                                            <div>
+                                                <br/>
+                                                <a role="button"
+                                                   id="clickAddSigIn">
+                                                    <img alt="Google sign-in"
+                                                         src="/img/btn-google.png" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                                            <br/>
+                                            <div class="mb-3">
+
+                                                <div class="input-group">
+                                                    <span class="input-group-text" >smtp email:</span>
+                                                    <input id="smtpEmail" type="email" class="form-control"  aria-describedby="basic-addon3">
+                                                </div>
+
+                                            </div>
+                                            <div class="mb-3">
+
+                                                <div class="input-group">
+                                                    <span class="input-group-text">smtp pass:</span>
+                                                    <input id="smtpPass" type="password" class="form-control" aria-describedby="basic-addon3">
+                                                </div>
+
+                                            </div>
+                                            <div class="mb-3">
+
+                                                <div class="input-group">
+                                                    <span class="input-group-text">smtp host</span>
+                                                    <input  id="smtpHost" type="text" class="form-control"  aria-describedby="basic-addon3">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="mb-3">
+
+                                                <div class="input-group">
+                                                    <span class="input-group-text">smtp port</span>
+                                                    <input id="smtpPort" type="number" class="form-control"  aria-describedby="basic-addon3">
+                                                </div>
+
+                                            </div>
+                                            <button id="smtpConnect" class="btn btn-primary float-end">Connect</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="tab-pane fade" id="features-tab-pane" role="tabpanel" aria-labelledby="features-tab" tabindex="0">
+
+                            <div class="card">
+                                <div class="card-header">After changes please refresh DAT page</div>
+                                <div class="card-body">
+
+                                    <div class="container">
+
+
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="emailCheckBox">
+                                            <label class="form-check-label" for="emailCheckBox">Email Send Button</label>
+                                        </div>
+
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" disabled role="switch" id="filterCheckBox">
+                                            <label class="form-check-label" for="filterCheckBox">Filters</label>
+                                        </div>
+
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" disabled role="switch" id="rpmCheckBox">
+                                            <label class="form-check-label" for="rpmCheckBox">RPM calculator</label>
+                                        </div>
+
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" disabled role="switch" id="mapCheckBox">
+                                            <label class="form-check-label" for="mapCheckBox">Google Map</label>
+                                        </div>
+
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" disabled role="switch" id="mcCheckBox">
+                                            <label class="form-check-label" for="mcCheckBox">MC auto check</label>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="tab-pane fade" id="conf-tab-pane" role="tabpanel" aria-labelledby="conf-tab" tabindex="0">
+
+                            <div class="container mt-2">
+                                <br/>
+                                <p style="font-size: 1.2rem;">telegram: <a target="_blank" href="https://t.me/DATconnect">Admin</a></p>
+                                <p style="font-size: 1.2rem;">whatsapp: +996707077577</p>
+                                <p style="font-size: 1.2rem;">email: ulukbek@carrierify.com</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </section>
+          
+
+            <div class="container mt-2">
+                <br/>
+                <p style="font-size: 1.2rem;">Join our <a target="_blank" href="https://t.me/upsbdat">Telegram Group</a></p>
+            </div>
+
+    
+           
+
+        </main>
+        <script src="scripts/base64.min.js"></script>
+        <script src="popup.js"></script>
+
+       
+    
+    </body>
+</html>
